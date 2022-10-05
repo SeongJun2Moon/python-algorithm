@@ -27,3 +27,5 @@ if __name__=="__main__":
     money = input("요청금액: ")
     print()
     print(solution.solution(money))
+
+# .
