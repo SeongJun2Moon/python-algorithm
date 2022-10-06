@@ -19,12 +19,20 @@ class Solution:
     def solution(self, money):
         title = " ### 화폐교환 ### "
         aster = "*"*30
-        answer = f"요청금액: {money}원"
+        change_5man = int(money / 50000)
+        change_1man = int(money % 50000 / 10000)
+        change_5cheon = int(money % 50000 % 10000 / 5000)
+        change_1cheon = int(money % 50000 % 10000 % 5000 / 1000)
+        change_5back = int(money % 50000 % 10000 % 5000 % 1000 / 500)
+        change_1back = int(money % 50000 % 10000 % 5000 % 1000 % 500 / 100)
+        change_5ship = int(money % 50000 % 10000 % 5000 % 1000 % 500 % 100 / 50)
+        change_1ship = int(money % 50000 % 10000 % 5000 % 1000 % 500 % 100 % 50 / 10)
+        answer = f"요청금액: {money}원 \n 5만원: {change_5man}매 \n 1만원: {change_1man}매 \n 5천원: {change_5cheon}매 \n 1천원: {change_1cheon}매 \n 5백원: {change_5back}매 \n 1백원: {change_1back}매 \n 5십원: {change_5ship}매 \n 1십원: {change_1ship}매"
         return f"{title} \n{aster}\n {answer}  \n{aster}"
 
 if __name__=="__main__":
     solution = Solution()
-    money = input("요청금액: ")
+    money = int(input("돈: "))
     print()
     print(solution.solution(money))
 
