@@ -17,35 +17,18 @@
 
 class Solution:
     def solution(self, money):
-        title = " ### 화폐교환 ### "
-        aster = "*"*30
         unit =[50000, 10000, 5000, 1000, 500, 100, 50, 10]
-        change_5man = money // unit[0]
-        a = money % unit[0]
-        change_1man = a // unit[1]
-        b = money % unit[1]
-        change_5cheon = b // unit[2]
-        change_1cheon = money % unit[2] // unit[3]
-        change_5back = money % unit[3] // unit[4]
-        change_1back = money % unit[4] // unit[5]
-        change_5ship = money % unit[5] // unit[6]
-        change_1ship = money % unit[6] // unit[7]
-        answer = f"요청금액: {money}원"
-        result = (
-            f"{title} \n{aster}\n {answer} \n{aster} \n"
-            f"5만원: {change_5man}매 \n"
-            f"1만원: {change_1man}매 \n"
-            f"5천원: {change_5cheon}매 \n"
-            f"1천원: {change_1cheon}매 \n"
-            f"5백원: {change_5back}매 \n"
-            f"1백원: {change_1back}매 \n"
-            f"5십원: {change_5ship}매 \n"
-            f"1십원: {change_1ship}매 \n"
-        )
-        return result
+        for i in unit:
+            change = money // i
+            money = money % i
+            print(f"{i}원: {change}개")
 
 if __name__=="__main__":
     solution = Solution()
     money = int(input("돈: "))
-    print()
-    print(solution.solution(money))
+    title = " ### 화폐교환 ### "
+    aster = "*"*30
+    answer = f"요청금액: {money}원"
+    print(f"{aster}\n{title}\n\n요청금액: {money}")
+    solution.solution(money)
+    print(aster)
