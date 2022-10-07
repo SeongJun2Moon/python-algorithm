@@ -18,10 +18,14 @@
 class Solution:
     def solution(self, money):
         unit =[50000, 10000, 5000, 1000, 500, 100, 50, 10]
+        dc = {}
         for i in unit:
-            change = money // i
+            cnt = money // i
+            dc[i] = cnt
             money = money % i
-            print(f"{i}원: {change}개")
+        
+        for k,v in dc.items():
+            print(f'{k}원 : {v}매')
 
 if __name__=="__main__":
     solution = Solution()
@@ -29,6 +33,6 @@ if __name__=="__main__":
     title = " ### 화폐교환 ### "
     aster = "*"*30
     answer = f"요청금액: {money}원"
-    print(f"{aster}\n{title}\n\n요청금액: {money}")
+    print(f"{aster}\n{title}\n{aster}\n요청금액: {money}")
     solution.solution(money)
     print(aster)
