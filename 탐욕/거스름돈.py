@@ -23,16 +23,14 @@ class Solution:
             cnt = money // i
             dc[i] = cnt
             money = money % i
-        
-        for k,v in dc.items():
-            print(f'{k}원 : {v}매')
+            print('### 화폐교환 ###')
+            print("*"*30)
+            print(f"요청금액 : {money} 원")
+            for k, v in dc.items():
+                print(f'{k}원 : {v}매')
+            print("*"*30)
 
 if __name__=="__main__":
     solution = Solution()
-    money = int(input("돈: "))
-    title = " ### 화폐교환 ### "
-    aster = "*"*30
-    answer = f"요청금액: {money}원"
-    print(f"{aster}\n{title}\n{aster}\n요청금액: {money}")
+    money = int(input("화폐교환할 금액입력: "))
     solution.solution(money)
-    print(aster)
